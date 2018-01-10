@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Medical expert system</title>
+    <link href="default.css" rel="stylesheet" type="text/css" media="screen" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<!-- start header -->
+<div id="header">
+<div id="logo">
+	<h1><a href="#">Medical  </a></h1>
+	<p>Expert System</p>
+</div>
+<div id="menu">
+	<ul>
+		<li class="current_page_item"><a href="default.aspx">Homepage</a></li>
+		<li><a href="Services.aspx">Services</a></li>
+		<li><a href="News.aspx">News</a></li>
+		<li><a href="AboutUs.aspx">About Us</a></li>
+		<li><a href="ContactUs.aspx">Contact Us</a></li>
+	</ul>
+</div>
+<div><img src="images/logo.gif" alt="" width="980" height="248" /></div>
+</div>
+<!-- end header -->
+ <form id="form1" runat="server">
+<div id="wrapper">
+<!-- start page -->
+<div id="page">
+   
+   <!-- start content -->
+	<div id="content">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+   <!-- end content -->
+    <!-- start sidebars -->
+	<div id="sidebar1" class="sidebar">
+		<ul>
+			<li>
+				<h2>Log In</h2>
+				<ul>
+					<li>
+                    <asp:LoginView runat="server" ID="LoginView1">
+                    <AnonymousTemplate>
+                    User Name : <asp:TextBox runat="server" ID="txtUserName"></asp:TextBox>
+                        <asp:RequiredFieldValidator 
+                            ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUserName" 
+                            ErrorMessage="Required" ValidationGroup="logIn">*</asp:RequiredFieldValidator>
+                            &nbsp;Password :  <asp:TextBox ID="txtPassword"  runat="server" TextMode="Password"></asp:TextBox> <asp:RequiredFieldValidator 
+                            ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPassword" 
+                            ErrorMessage="Required">*</asp:RequiredFieldValidator>&nbsp;
+                    <asp:Button ID="btnLogIn" text="Log In" runat="server" onclick="btnLogIn_Click"/><asp:CheckBox id="chkRememberMe" Text="Remember" runat="server"/>
+					<a href="Register.aspx">Register</a>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                    Welcome <asp:LoginName runat="server"/> | <asp:LoginStatus runat="server"/> | <a href="EditProfile.aspx">Profile</a>
+                    </LoggedInTemplate>
+                    </asp:LoginView>
+                    
+                    
+                    </li>					
+				</ul>
+			</li>
+			<li>
+				<h2>System diagostics</h2>
+				<ul>
+					<li><a href="ManageSyptoms.aspx">Manage Syptoms</a></li>
+					<li><a href="ManageDiagnosis.aspx">Manage Diagnosis</a></li>
+                    <li><a href="ManageAttributes.aspx">Manage Attributes</a></li>
+                    <li><a href="ManageTraining.aspx">Expert Training</a></li>
+                    <li><a href="Services.aspx">Expert Service</a></li>
+                    <li><a href="MyCases.aspx">My Cases</a></li>
+				</ul>
+			</li>
+			<li>
+				<h2>News</h2>
+				<ul>
+					<li><a href="news.aspx">Medical Expert System launch</a></li>
+					<li><a href="news.aspx">Asthma Drug Prevents Spread of Breast Cancer, Study Finds</a></li>
+					<li><a href="news.aspx">Pregnant Women Who Eat Peanuts May Put Infants at Increased Risk for Peanut Allergy, Study Finds</a></li>
+					<li><a href="news.aspx">Medical Expert System change Layout</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+	<!-- end sidebars -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+</div>
+ </form>
+    <div id="footer">
+	<p>&copy;2010 All Rights Reserved. &nbsp;&nbsp;<a href="#">Medical expert System</a></p>
+</div>
+</body>
+</html>
